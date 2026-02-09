@@ -1,0 +1,19 @@
+# configs/attack_pgd.yaml
+# PGD attack configuration
+
+experiment:
+  name: "attack_pgd"
+  seed: 42
+  device: "cuda"
+
+attack:
+  type: "pgd"
+  epsilon: 0.031  # 8/255 for CIFAR-10
+  alpha: 0.008    # 2/255
+  num_steps: 10
+  random_start: true
+
+evaluation:
+  epsilons: [0.0, 0.008, 0.016, 0.031, 0.062]  # [0, 2/255, 4/255, 8/255, 16/255]
+  save_examples: true
+  num_examples: 10

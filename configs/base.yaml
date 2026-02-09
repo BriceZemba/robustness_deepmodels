@@ -1,0 +1,28 @@
+# Base configuration for clean training
+
+experiment:
+  name: "baseline_clean"
+  seed: 42
+  device: "cuda"  # cuda or cpu
+
+data:
+  dataset: "cifar10"  # cifar10 or mnist
+  batch_size: 128
+  num_workers: 4
+  augment: true
+
+model:
+  architecture: "resnet18"  # cnn or resnet18
+  dropout: 0.3
+
+training:
+  epochs: 50
+  lr: 0.001
+  weight_decay: 0.0001
+  patience: 10
+  optimizer: "adam"
+  scheduler: "cosine"
+
+attack: null  # No attack in clean training
+
+defense: null  # No defense in baseline
